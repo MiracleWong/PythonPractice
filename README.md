@@ -5,3 +5,4 @@
 ## Todo
 - [Python 练习册，每天一个小程序](https://github.com/Yixiaohan/show-me-the-code)
 - [Python 的练手项目有哪些值得推荐？](https://www.zhihu.com/question/29372574)
+- [python小练习：一日一练](http://bbs.fishc.com/forum.php?mod=collection&action=view&ctid=503)
