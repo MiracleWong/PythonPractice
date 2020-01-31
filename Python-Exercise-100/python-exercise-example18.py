@@ -2,12 +2,19 @@
 # -*- coding: UTF-8 -*-
 
 # 地址：http://www.runoob.com/python/python-exercise-example18.html
+from functools import reduce
 
-# 错误示例
-x = 27
-y = 27
-print(x == y)
+Tn = 0
+Sn = []
+n = int(input("n = "))
+a = int(input("a = "))
+for count in range(n):
+    Tn = Tn + a
+    a = a * 10
+    Sn.append(Tn)
+    print(Tn)
+Sn = reduce(lambda x, y: x + y, Sn)
+print("计算和为：", Sn)
 
-x = 721
-y = 721
-print(x == y)
+# // TODO reduce 的用处
+
