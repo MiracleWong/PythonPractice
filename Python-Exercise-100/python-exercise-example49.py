@@ -7,4 +7,13 @@
 # 知识点：匿名函数
 # 地址：https://www.liaoxuefeng.com/wiki/1016959663602400/1017451447842528
 
-print(list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
+
+MAXIMUM = lambda x, y: (x > y) * x + (x < y) * y
+MINIMUM = lambda x, y: (x > y) * y + (x < y) * x
+
+if __name__ == "__main__":
+    a = 10
+    b = 20
+    print("The largar one is %d" % MAXIMUM(a, b))
+    print("The lower one is %d" % MINIMUM(a, b))
+
