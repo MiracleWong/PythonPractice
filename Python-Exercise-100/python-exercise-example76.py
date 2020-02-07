@@ -19,11 +19,16 @@ def odd(n):
     return sum
 
 
+def sum_polynomials(func, num):
+    sum = func(num)
+    return sum
+
+
 if __name__ == "__main__":
-    # num = int(input("请输入一个数字: \n"))
-    num = 7
+    num = int(input("请输入一个数字: \n"))
+    # num = 10
     if num % 2 == 0:
-        print(even(num))
+        print(sum_polynomials(even, num))
     else:
-        print(odd(num))
+        print(sum_polynomials(odd, num))
 
