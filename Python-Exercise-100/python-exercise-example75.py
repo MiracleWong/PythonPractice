@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+# 地址：http: //www.runoob.com/python/python-exercise-example75.html
+
+if __name__ == "__main__":
+    for i in range(5):
+        n = 0
+        if i != 1:
+            n += 1
+        if i == 3:
+            n += 1
+        if i == 4:
+            n += 1
+        if i != 4:
+            n += 1
+        if n == 3:
+            print(64 + i)
+
