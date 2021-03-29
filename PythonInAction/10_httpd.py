@@ -35,8 +35,8 @@ def main():
     pids = getPid()
     http_mem = parsePidFile(pids)
     total = total_mem('/proc/meminfo')
-    print "Apache memory is: %s KB " % http_mem
-    print "Percnet %.2f%% " % (http_mem/float(total)*100)
+    print("Apache memory is: %s KB " % http_mem)
+    print("Percnet %.2f%% " % (http_mem/float(total)*100))
 
 
 if __name__ == '__main__':
