@@ -13,9 +13,9 @@
 # 3. 控制元字符的顺序和位置，要使用“＾”、“$ ”、“ | ”和“ ()”元字符。
 
 import re
-re.search("[0-9]{11}","13855556666")
+re.search("[0-9]{11}", "13855556666")
 re.search("[0-9]{3}-[0-9]{8}", "我的电话号码:010-12345678.").group(0)
-re.sub("(Y|y)(es)*", "No", "aayesbb")
+re.sub("(Y | y)(es)*", "No", "aayesbb")
 
-points = re.search(".....","aaa13855557890bbb")
+points = re.search(".....", "aaa13855557890bbb")
 print(points.group(0))

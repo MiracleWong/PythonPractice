@@ -6,7 +6,7 @@ return_code = run(cmd1, shell=True)
 print(return_code)
 # CompletedProcess(args=['ls', '.'], return_code=0)
 # return_code“ls .”的退出状态码.
-# 通常来说, 一个为 0 的退出码表示进程运行正常
+# 通常来说, 一个为 0 E规中
 
 # 使用Popen获取程序运行结果
 with Popen(cmd1, shell=True, stdout=PIPE, stderr=PIPE, encoding="utf-8") as fs:
