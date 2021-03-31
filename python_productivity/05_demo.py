@@ -1,11 +1,11 @@
 from subprocess import run, Popen, PIPE
 
 cmd1 = ["ls", "."]
-returncode = run(cmd1)
+return_code = run(cmd1, shell=True)
 
-print(returncode)
-# CompletedProcess(args=['ls', '.'], returncode=0)
-# returncode是“ls .”的退出状态码.
+print(return_code)
+# CompletedProcess(args=['ls', '.'], return_code=0)
+# return_code“ls .”的退出状态码.
 # 通常来说, 一个为 0 的退出码表示进程运行正常
 
 # 使用Popen获取程序运行结果
