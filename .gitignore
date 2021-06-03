@@ -100,3 +100,6 @@ ENV/
 # mypy
 .mypy_cache/
 .idea/
+
+# Projects
+Python-Auto-Ops/setting.py
