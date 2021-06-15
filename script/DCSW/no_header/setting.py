@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 area_info = {
-    "quz": {
+    "quzhou": {
         "enabled": True,
         "name": "quzhou",
         "name_zh_CN": "衢州",
@@ -12,7 +12,7 @@ area_info = {
         "vsw_info": ["183.150.170.3"],
         "dcsw_info": ["220.185.56.11"],
     },
-    "hangz": {
+    "hangzhou": {
         "enabled": False,
         "name": "hangzhou",
         "name_zh_CN": "杭州",
@@ -22,7 +22,7 @@ area_info = {
         "vsw_info": ["0.0.0.0"],
         "dcsw_info": ["0.0.0.0", "1.1.1.1", "2.2.2.2"],
     },
-    "huz": {
+    "huzhou": {
         "enabled": False,
         "name": "huzhou",
         "name_zh_CN": "湖州",
@@ -32,7 +32,7 @@ area_info = {
         "vsw_info": ["0.0.0.0"],
         "dcsw_info": ["0.0.0.0", "1.1.1.1", "2.2.2.2"],
     },
-    "jiax": {
+    "jiaxing": {
         "enabled": False,
         "name": "jiaxing",
         "name_zh_CN": "嘉兴",
@@ -42,7 +42,7 @@ area_info = {
         "vsw_info": ["218.73.114.235"],
         "dcsw_info": ["61.130.190.17"],
     },
-    "ningb": {
+    "ningbo": {
         "enabled": True,
         "name": "ningbo",
         "name_zh_CN": "宁波",
@@ -52,7 +52,7 @@ area_info = {
         "vsw_info": ["61.175.6.115"],
         "dcsw_info": ["61.153.86.3"],
     },
-    "shaox": {
+    "shaoxing": {
         "enabled": True,
         "name": "shaoxing",
         "name_zh_CN": "绍兴",
@@ -62,7 +62,7 @@ area_info = {
         "vsw_info": [" 61.175.183.231"],
         "dcsw_info": ["61.130.35.53"],
     },
-    "taiz": {
+    "taizhou": {
         "enabled": True,
         "name": "taizhou",
         "name_zh_CN": "台州",
@@ -72,7 +72,7 @@ area_info = {
         "vsw_info": ["61.175.76.155"],
         "dcsw_info": ["61.175.80.233"],
     },
-    "wenz": {
+    "wenzhou": {
         "enabled": True,
         "name": "wenzhou",
         "name_zh_CN": "温州",
@@ -82,7 +82,7 @@ area_info = {
         "vsw_info": ["220.186.243.231"],
         "dcsw_info": ["61.174.177.76"],
     },
-    "lis": {
+    "lishui": {
         "enabled": True,
         "name": "lishui",
         "name_zh_CN": "丽水",
@@ -92,7 +92,7 @@ area_info = {
         "vsw_info": ["218.74.114.87"],
         "dcsw_info": ["218.74.120.12","218.74.120.13"],
     },
-    "jinh": {
+    "jinhua": {
         "enabled": True,
         "name": "jinhua",
         "name_zh_CN": "金华",
@@ -102,7 +102,7 @@ area_info = {
         "vsw_info": ["61.174.195.75"],
         "dcsw_info": ["61.130.42.233"],
     },
-    "zhous": {
+    "zhoushan": {
         "enabled": True,
         "name": "zhoushan",
         "name_zh_CN": "舟山",
@@ -112,7 +112,7 @@ area_info = {
         "vsw_info": ["61.130.240.19"],
         "dcsw_info": ["115.233.240.47"],
     },
-    "zhej": {
+    "zhejiang": {
         "enabled": False,
         "name": "zhejiang",
         "name_zh_CN": "浙江",

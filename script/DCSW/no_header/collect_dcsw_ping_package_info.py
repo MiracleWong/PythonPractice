@@ -6,15 +6,16 @@ import csv
 import click
 import socket
 import setting
+import pandas
 
 
-
-def get_dcsw_info(f, city):
+def get_dcsw_info(f, city, df_city):
     package_ping_unavailable_data = []
     if setting.area_info[city]["enabled"]:
         click.echo("回Ping  %s 的机器" % setting.area_info[city]["name_zh_CN"])
+        city_name = setting.area_info[city]["name"]
         vsw_list = setting.area_info[city]["vsw_info"]
-        dcsw_list = setting.area_info[city]["dcsw_info"]
+        dcsw_list = df_city['mgmt_ip']
         username = setting.area_info[city]["username"]
         password = setting.area_info[city]["password"]
         vsw_ip = vsw_list[0]
@@ -48,58 +49,39 @@ def get_dcsw_info(f, city):
         click.echo("%s 未开通DCSW路由配置" % setting.area_info[city]["name_zh_CN"])
         return
 
+
 def get_all_machine():
     pass
 
+
 @click.command()
-@click.option("--city", prompt="地区名称，拼音缩写", help="quz hangz huz jiax ningb shaox taiz wenz lis jinh zhous all")
+@click.option("--city", prompt="地区名称，拼音缩写",
+              help="quzhou hangzhou huzhou jiaxing ningbo shaoxing taizhou wenzhou lishui jinhua zhoushan all")
 def ping(city):
-    if city == "quz" or city == "quzhou":
+    df = read_csv()
+
+    if city != "all":
+        city_code = setting.area_info[city]["area_code"]
+        df_city = df.loc[df['dev_addr'] == city_code]
+        print(df_city)
         with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "hangz" or city == "hangzhou":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "huz" or city == "huzhou":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "jiax" or city == "jiaxing":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "ningb" or city == "ningbo":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "shaox" or city == "shaoxing":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "taiz" or city == "taizhou":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "wenz" or city == "wenzhou":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "lis" or city == "lishui":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "jinh" or city == "jinhua":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "zhous" or city == "zhoushan":
-        with open('ping.log', 'wb+') as f:
-            get_dcsw_info(f,city)
-    elif city == "all":
-        city_list = ["quz","hangz","huz","jiax","ningb","shaox","taiz","wenz","lis","jinh","zhous"]
+            get_dcsw_info(f, city, df_city)
+    else:
+        city_list = ["quzhou", "hangzhou", "huzhou", "jiaxing", "ningbo", "shaoxing", "taizhou", "wenzhou", "lishui",
+                     "jinhua", "zhoushan"]
         for i in city_list:
             click.echo(i)
+            city_code = setting.area_info[i]["area_code"]
+            df_city = df.loc[df['dev_addr'] == city_code]
             # 进行屏蔽
-            # with open('ping.log', 'wb+') as f:
-            #     get_dcsw_info(f,i)
+            with open('ping.log', 'wb+') as f:
+                get_dcsw_info(f, i, df_city)
 
 
 def main():
     dcsw_list = []
     vsw_ip = "61.174.195.75"
-    with open('dcsw_cfg.csv','r') as csvfile:
+    with open('dcsw_cfg.csv', 'r') as csvfile:
         dcsw_cfg = csv.reader(csvfile)
         for row in dcsw_cfg:
             print(row[0])
@@ -108,10 +90,23 @@ def main():
         get_dcsw_info(dcsw_cfg_f, dcsw_list, vsw_ip)
 
     ## 如果服务器配置了ssh免密码登录，就不需要 connect_kwargs 来指定密码
-    #conn = Connection("sdnnetconf@115.233.240.47", connect_kwargs={"password": "SDN_conf@2018"})
-    #conn.run("ping -a 115.233.240.47 61.130.240.19",warn=True)
-    #conn.run("quit",warn=True)
-    #conn.close()
+    # conn = Connection("sdnnetconf@115.233.240.47", connect_kwargs={"password": "SDN_conf@2018"})
+    # conn.run("ping -a 115.233.240.47 61.130.240.19",warn=True)
+    # conn.run("quit",warn=True)
+    # conn.close()
+
+
+# 读取csv
+
+
+def read_csv():
+    # df = pandas.read_csv("device_no_header.csv")
+    df = pandas.read_csv("../device.csv")
+    # 按照指定列进行排序
+    # list_custom = ['0570', '0571', '0572', '0573', '0574', '0575', '0576', '0577', '0578', '0579', '0580', '057X']
+    df = df.sort_values(axis=0, ascending=True, by='dev_addr')
+    return df
+
 
 if __name__ == '__main__':
     ping()
